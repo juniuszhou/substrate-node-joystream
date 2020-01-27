@@ -64,7 +64,9 @@ rev = 'dc1a7b336a101d0c2b078cf89e77dc4478b34968' # working group integration
 
 [dependencies.new-node-runtime]
 package = 'joystream-node-runtime'
-path = 'substrate-runtime-joystream'
+git = 'https://github.com/juniuszhou/substrate-runtime-joystream'
+branch = 'data-migration'
+# path = 'substrate-runtime-joystream'
 
 [dependencies.primitives]
 git = 'https://github.com/paritytech/substrate.git'

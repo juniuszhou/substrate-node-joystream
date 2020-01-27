@@ -19,6 +19,13 @@ fn parse_forum_json() -> Result<ForumData> {
 }
 
 pub fn create(forum_sudo: AccountId) -> ForumConfig {
+    println!("Start data migration.");
+    println!("======================");
+    println!("======================");
+    println!("======================");
+    println!("======================");
+    println!("======================");
+    println!("======================");
     let forum_data = parse_forum_json().expect("failed loading forum data");
 
     let next_category_id: CategoryId = forum_data
