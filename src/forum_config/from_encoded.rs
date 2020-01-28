@@ -1,15 +1,13 @@
 // This module is not used but included as sample code
 // and highlights some pitfalls.
 
+use super::new_validation;
 use node_runtime::{
-    forum::{
-        Category, CategoryId, Post, PostId, Thread, ThreadId,
-    },
+    forum::{Category, CategoryId, Post, PostId, Thread, ThreadId},
     AccountId, BlockNumber, ForumConfig, Moment,
 };
 use serde::Deserialize;
 use serde_json::Result;
-use super::new_validation;
 
 use codec::Decode;
 

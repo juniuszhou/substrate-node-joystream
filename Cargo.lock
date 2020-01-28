@@ -1506,8 +1506,9 @@ dependencies = [
  "futures",
  "hex 0.4.0",
  "hex-literal 0.2.1",
- "joystream-node-runtime 6.0.0 (git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=data-migration)",
- "joystream-node-runtime 6.0.0 (git+https://github.com/mnaamani/substrate-runtime-joystream?rev=dc1a7b336a101d0c2b078cf89e77dc4478b34968)",
+ "joystream-node-runtime 6.0.0",
+ "joystream-node-runtime 6.0.0 (git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=old-runtime)",
+ "json",
  "jsonrpc-core",
  "log",
  "parity-scale-codec",
@@ -1544,7 +1545,7 @@ dependencies = [
 [[package]]
 name = "joystream-node-runtime"
 version = "6.0.0"
-source = "git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=data-migration#dc1a7b336a101d0c2b078cf89e77dc4478b34968"
+source = "git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=old-runtime#919a1e166340461954582e68bd5f6aa833162345"
 dependencies = [
  "parity-scale-codec",
  "safe-mix",
@@ -1577,7 +1578,7 @@ dependencies = [
  "substrate-authority-discovery-primitives",
  "substrate-client",
  "substrate-consensus-babe-primitives",
- "substrate-forum-module",
+ "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=data-migration)",
  "substrate-hiring-module",
  "substrate-offchain-primitives",
  "substrate-primitives",
@@ -1593,7 +1594,6 @@ dependencies = [
 [[package]]
 name = "joystream-node-runtime"
 version = "6.0.0"
-source = "git+https://github.com/mnaamani/substrate-runtime-joystream?rev=dc1a7b336a101d0c2b078cf89e77dc4478b34968#dc1a7b336a101d0c2b078cf89e77dc4478b34968"
 dependencies = [
  "parity-scale-codec",
  "safe-mix",
@@ -1626,7 +1626,7 @@ dependencies = [
  "substrate-authority-discovery-primitives",
  "substrate-client",
  "substrate-consensus-babe-primitives",
- "substrate-forum-module",
+ "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=development)",
  "substrate-hiring-module",
  "substrate-offchain-primitives",
  "substrate-primitives",
@@ -1647,6 +1647,12 @@ checksum = "d8657b7ca06a6044ece477f6900bf7670f8b5fd0cce177a1d7094eef51e0adf4"
 dependencies = [
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "json"
+version = "0.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9a38661a28126f8621fb246611288ae28935ddf180f5e21f2d0fbfe5e4131dbe"
 
 [[package]]
 name = "jsonrpc-client-transports"
@@ -4698,7 +4704,26 @@ dependencies = [
 [[package]]
 name = "substrate-forum-module"
 version = "1.1.0"
-source = "git+https://github.com/Joystream/substrate-forum-module?rev=4bdeadaadfcca1fd6e822c520f429d4beacc4c8a#4bdeadaadfcca1fd6e822c520f429d4beacc4c8a"
+source = "git+https://github.com/juniuszhou/substrate-forum-module?branch=data-migration#a568063d49afc1cac890658db1586031ef5e2886"
+dependencies = [
+ "hex-literal 0.1.4",
+ "parity-scale-codec",
+ "serde",
+ "serde_derive",
+ "sr-io",
+ "sr-primitives",
+ "sr-std",
+ "srml-balances",
+ "srml-support",
+ "srml-support-procedural",
+ "srml-system",
+ "srml-timestamp",
+]
+
+[[package]]
+name = "substrate-forum-module"
+version = "1.1.0"
+source = "git+https://github.com/juniuszhou/substrate-forum-module?branch=development#e8838bc4af562b03a50d393cd0c3f1cf248fd875"
 dependencies = [
  "hex-literal 0.1.4",
  "parity-scale-codec",

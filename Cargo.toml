@@ -23,6 +23,7 @@ structopt = '0.3.3'
 serde_json = '1.0'
 serde = '1.0'
 hex = '0.4'
+json = '0.12.1'
 
 [dependencies.substrate-basic-authorship]
 git = 'https://github.com/paritytech/substrate.git'
@@ -57,16 +58,17 @@ git = 'https://github.com/paritytech/substrate.git'
 package = 'substrate-network'
 rev = '0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3'
 
-[dependencies.node-runtime]
-package = 'joystream-node-runtime'
-git = 'https://github.com/mnaamani/substrate-runtime-joystream'
-rev = 'dc1a7b336a101d0c2b078cf89e77dc4478b34968' # working group integration
-
-[dependencies.new-node-runtime]
+[dependencies.old-node-runtime]
 package = 'joystream-node-runtime'
 git = 'https://github.com/juniuszhou/substrate-runtime-joystream'
-branch = 'data-migration'
-# path = 'substrate-runtime-joystream'
+branch = 'old-runtime' 
+# working group integration
+
+[dependencies.node-runtime]
+package = 'joystream-node-runtime'
+# git = 'https://github.com/juniuszhou/substrate-runtime-joystream'
+# branch = 'data-migration'
+path = 'substrate-runtime-joystream'
 
 [dependencies.primitives]
 git = 'https://github.com/paritytech/substrate.git'
