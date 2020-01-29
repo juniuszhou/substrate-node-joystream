@@ -1506,8 +1506,8 @@ dependencies = [
  "futures",
  "hex 0.4.0",
  "hex-literal 0.2.1",
- "joystream-node-runtime 6.0.0 (git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=data-migration)",
  "joystream-node-runtime 6.0.0 (git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=old-runtime)",
+ "joystream-node-runtime 6.0.0 (git+https://github.com/juniuszhou/substrate-runtime-joystream?rev=e6d8ae07c9271ffc0194294143a66d78018d057d)",
  "json",
  "jsonrpc-core",
  "log",
@@ -1540,55 +1540,6 @@ dependencies = [
  "substrate-transaction-pool",
  "tokio",
  "vergen",
-]
-
-[[package]]
-name = "joystream-node-runtime"
-version = "6.0.0"
-source = "git+https://github.com/juniuszhou/substrate-runtime-joystream?branch=data-migration#9b80792aba21f85cfca245e8d08ced873651b8e0"
-dependencies = [
- "parity-scale-codec",
- "safe-mix",
- "serde",
- "sr-io",
- "sr-primitives",
- "sr-staking-primitives",
- "sr-std",
- "sr-version",
- "srml-authority-discovery",
- "srml-authorship",
- "srml-babe",
- "srml-balances",
- "srml-executive",
- "srml-finality-tracker",
- "srml-grandpa",
- "srml-im-online",
- "srml-indices",
- "srml-offences",
- "srml-randomness-collective-flip",
- "srml-session",
- "srml-staking",
- "srml-staking-reward-curve",
- "srml-sudo",
- "srml-support",
- "srml-system",
- "srml-system-rpc-runtime-api",
- "srml-timestamp",
- "srml-transaction-payment",
- "substrate-authority-discovery-primitives",
- "substrate-client",
- "substrate-consensus-babe-primitives",
- "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=development)",
- "substrate-hiring-module",
- "substrate-offchain-primitives",
- "substrate-primitives",
- "substrate-recurring-reward-module",
- "substrate-session",
- "substrate-stake-module",
- "substrate-token-mint-module",
- "substrate-versioned-store",
- "substrate-versioned-store-permissions-module",
- "substrate-wasm-builder-runner",
 ]
 
 [[package]]
@@ -1628,6 +1579,55 @@ dependencies = [
  "substrate-client",
  "substrate-consensus-babe-primitives",
  "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=data-migration)",
+ "substrate-hiring-module",
+ "substrate-offchain-primitives",
+ "substrate-primitives",
+ "substrate-recurring-reward-module",
+ "substrate-session",
+ "substrate-stake-module",
+ "substrate-token-mint-module",
+ "substrate-versioned-store",
+ "substrate-versioned-store-permissions-module",
+ "substrate-wasm-builder-runner",
+]
+
+[[package]]
+name = "joystream-node-runtime"
+version = "6.0.0"
+source = "git+https://github.com/juniuszhou/substrate-runtime-joystream?rev=e6d8ae07c9271ffc0194294143a66d78018d057d#e6d8ae07c9271ffc0194294143a66d78018d057d"
+dependencies = [
+ "parity-scale-codec",
+ "safe-mix",
+ "serde",
+ "sr-io",
+ "sr-primitives",
+ "sr-staking-primitives",
+ "sr-std",
+ "sr-version",
+ "srml-authority-discovery",
+ "srml-authorship",
+ "srml-babe",
+ "srml-balances",
+ "srml-executive",
+ "srml-finality-tracker",
+ "srml-grandpa",
+ "srml-im-online",
+ "srml-indices",
+ "srml-offences",
+ "srml-randomness-collective-flip",
+ "srml-session",
+ "srml-staking",
+ "srml-staking-reward-curve",
+ "srml-sudo",
+ "srml-support",
+ "srml-system",
+ "srml-system-rpc-runtime-api",
+ "srml-timestamp",
+ "srml-transaction-payment",
+ "substrate-authority-discovery-primitives",
+ "substrate-client",
+ "substrate-consensus-babe-primitives",
+ "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?rev=f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6)",
  "substrate-hiring-module",
  "substrate-offchain-primitives",
  "substrate-primitives",
@@ -4724,7 +4724,7 @@ dependencies = [
 [[package]]
 name = "substrate-forum-module"
 version = "1.1.0"
-source = "git+https://github.com/juniuszhou/substrate-forum-module?branch=development#e8838bc4af562b03a50d393cd0c3f1cf248fd875"
+source = "git+https://github.com/juniuszhou/substrate-forum-module?rev=f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6#f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6"
 dependencies = [
  "hex-literal 0.1.4",
  "parity-scale-codec",
