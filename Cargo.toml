@@ -66,9 +66,9 @@ branch = 'old-runtime'
 
 [dependencies.node-runtime]
 package = 'joystream-node-runtime'
-# git = 'https://github.com/juniuszhou/substrate-runtime-joystream'
-# branch = 'data-migration'
-path = 'substrate-runtime-joystream'
+git = 'https://github.com/juniuszhou/substrate-runtime-joystream'
+branch = 'data-migration'
+# path = 'substrate-runtime-joystream'
 
 [dependencies.primitives]
 git = 'https://github.com/paritytech/substrate.git'

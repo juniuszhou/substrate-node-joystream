@@ -1,5 +1,6 @@
 pub mod from_serialized;
 use json::{parse, JsonResult, JsonValue};
+use std::collections::HashMap;
 
 // Not exported - only here as sample code
 // mod from_encoded;
@@ -57,13 +58,80 @@ pub fn parse_data(
         vec![];
     let mut posts: Vec<Post<ForumUserId, ModeratorId, ThreadId, BlockNumber, Moment>> = vec![];
 
+    let mut forum_user_account_map: HashMap<[u8; 32], u64> = HashMap::new();
+    let mut moderator_account_map: HashMap<[u8; 32], u64> = HashMap::new();
+
     let mut next_forum_user_id: u64 = 1;
     let mut next_moderator_id: u64 = 1;
 
     // read one by one get moderator
     for index in 0..data.categories.len() {
         let moderator_account_id = data.categories[index].1.moderator_id.clone();
+        if moderator_account_map.contains_key(AsRef::<[u8; 32]>::as_ref(&moderator_account_id)) {
+            moderator_account_map.insert(*moderator_account_id.as_ref(), next_moderator_id);
+            next_moderator_id += 1;
+        };
     }
+
+    // read one by one get forum user account and moderator account
+    for index in 0..data.threads.len() {
+        let forum_user_account_id = data.threads[index].1.author_id.clone();
+        if forum_user_account_map.contains_key(AsRef::<[u8; 32]>::as_ref(&forum_user_account_id)) {
+            forum_user_account_map.insert(*forum_user_account_id.as_ref(), next_forum_user_id);
+            next_forum_user_id += 1;
+        };
+        if data.threads[index].1.moderation.is_some() {
+            let moderator_account_id = data.threads[index]
+                .1
+                .moderation
+                .clone()
+                .unwrap()
+                .moderator_id
+                .clone();
+            if moderator_account_map.contains_key(AsRef::<[u8; 32]>::as_ref(&moderator_account_id))
+            {
+                moderator_account_map.insert(*moderator_account_id.as_ref(), next_moderator_id);
+                next_moderator_id += 1;
+            };
+        }
+    }
+
+    // read each post and get forum user account
+
+    // mapping category
+    let categories = data
+        .categories
+        .iter()
+        .map(|category| Category {
+            id: category.1.id,
+            title: category.1.title.clone(),
+            description: category.1.description.clone(),
+            created_at: BlockchainTimestamp {
+                block: category.1.created_at.block,
+                time: category.1.created_at.time,
+            },
+            deleted: category.1.deleted,
+            archived: category.1.archived,
+            num_direct_subcategories: category.1.num_direct_subcategories,
+            num_direct_unmoderated_threads: category.1.num_direct_unmoderated_threads,
+            num_direct_moderated_threads: category.1.num_direct_moderated_threads,
+            position_in_parent_category: category.1.position_in_parent_category.as_ref().map(
+                |value| ChildPositionInParentCategory {
+                    parent_id: value.parent_id,
+                    child_nr_in_parent_category: value.child_nr_in_parent_category,
+                },
+            ),
+            sticky_thread_ids: vec![],
+        })
+        .collect();
+
+    // mapping threads
+
+    // mapping posts
+
+    // build forum users from forum user account map
+
+    // build moderators from moderator account map
 
     (forum_users, moderators, categories, threads, posts)
 }
